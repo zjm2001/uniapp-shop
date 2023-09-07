@@ -35,11 +35,16 @@
                     "path" : "goods_detail/goods_detail",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "商品分类",
                     "enablePullDownRefresh": false
-                }
-                
-                }
+                } },
+               {
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "商品列表",
+                    "enablePullDownRefresh": false
+                } }
             ]
     }
   ],
