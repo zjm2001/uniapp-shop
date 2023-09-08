@@ -1,5 +1,7 @@
 <template>
   <view>
+    <!-- //使用自定义搜索组件 -->
+    <my-search></my-search>
     <view class="scroll-view-container">
       <!-- 左侧的滚动视图区域 -->
       <!-- 左侧的滚动视图区域 -->
