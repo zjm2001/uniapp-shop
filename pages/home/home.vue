@@ -75,6 +75,10 @@
           uni.switchTab({
             url: '/pages/cate/cate'
           })
+        }else{
+          uni.navigateTo({
+            url:'/subpkg/goods_list/goods_list?query='+item.name.substring(0,2)
+          })
         }
       },
       //获取楼层数据
