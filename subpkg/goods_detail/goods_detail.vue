@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view v-if="goods_info.goods_name" class="goods-detail-container">
   <!-- 轮播图区域 -->
   <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
     <swiper-item v-for="(item, i) in goods_info.pics" :key="i">
@@ -28,6 +28,16 @@
 <!-- 商品详情信息 -->
 <rich-text :nodes="goods_info.goods_introduce"></rich-text>
 
+<!-- 商品导航组件 -->
+<view class="goods_nav">
+  <!-- fill 控制右侧按钮的样式 -->
+  <!-- options 左侧按钮的配置项 -->
+  <!-- buttonGroup 右侧按钮的配置项 -->
+  <!-- click 左侧按钮的点击事件处理函数 -->
+  <!-- buttonClick 右侧按钮的点击事件处理函数 -->
+  <uni-goods-nav :fill="true" :options="options" :buttonGroup="buttonGroup" @click="onClick" @buttonClick="buttonClick" />
+</view>
+
   </view>
 </template>
 
@@ -35,7 +45,26 @@
   export default {
     data() {
       return {
-            goods_info: {}          // 商品详情对象
+            goods_info: {} ,         // 商品详情对象
+             options: [{
+                  icon: 'shop',
+                  text: '店铺'
+                }, {
+                  icon: 'cart',
+                  text: '购物车',
+                  info: 9
+                }],
+                buttonGroup: [{     // 右侧按钮组的配置对象
+                    text: '加入购物车',
+                    backgroundColor: '#ff0000',
+                    color: '#fff'
+                  },
+                  {
+                    text: '立即购买',
+                    backgroundColor: '#ffa200',
+                    color: '#fff'
+                  }
+                ]
       };
     },
     onLoad(options) {
@@ -59,6 +88,16 @@
             current: i, //点击的那一张图片(显示的数)
             urls: this.goods_info.pics.map(x => x.pics_big)  //传入图片数组
           })
+      },
+      //点击下方购物车按钮
+      onClick(e){
+        // console.log(e);
+         if (e.index === 1) {
+            // 切换到购物车页面
+            uni.switchTab({
+              url: '/pages/cart/cart'
+            })
+          }
       }
     }
 
@@ -111,6 +150,18 @@ swiper {
     font-size: 12px;
     color: gray;
   }
+}
+
+.goods-detail-container {
+  padding-bottom: 50px;
+}
+
+.goods_nav {
+  // 为商品导航组件添加固定定位
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 </style>
