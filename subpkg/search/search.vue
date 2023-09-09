@@ -15,9 +15,12 @@
     <!-- 搜索历史 -->
     <view class="history-box" v-else>
       <!-- 标题区域 -->
-      <view class="history-title">
+      <view class="history-title" v-if="historys.length !== 0">
         <text>搜索历史</text>
         <uni-icons type="trash" size="17" @click="cleanHistory"></uni-icons>
+      </view>
+      <view class=" txt" v-else >
+        没有历史记录了~~~~
       </view>
       <!-- 列表区域 -->
       <view class="history-list">
@@ -35,7 +38,7 @@
         timer: null, // 延时器的 timerId
         kw: '', // 搜索关键词
         searchResults: [], //搜索列表数据
-        historyList: ['a', 'app', 'apple'], //搜索历史
+        historyList: [], //搜索历史
       };
     },
     onLoad() {
@@ -161,6 +164,11 @@
         margin-top: 5px;
         margin-right: 5px;
       }
+    }
+    .txt{
+      text-align: center;
+      margin-top: 20px;
+      
     }
   }
 </style>
