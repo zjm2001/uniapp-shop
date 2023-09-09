@@ -49,7 +49,8 @@
       async getGoodsDetail(goods_id) {
         const { data: res } = await uni.$http.get('/api/public/v1/goods/detail', { goods_id })
         if (res.meta.status !== 200) return uni.$showMsg()
-        // 为 data 中的数据赋值
+          // 解决图片底部空白间隙的问题(正则替换 出去图片间隙 和吧webp格式图片转化成jpg防止ios不显示)
+           res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g, '<img style="display:block;" ').replace(/webp/g, 'jpg')
         this.goods_info = res.message
       },
       //轮播图点击查看大图事件
@@ -75,10 +76,7 @@ swiper {
 // 商品信息区域的样式
 .goods-info-box {
   padding: 5px;
-  margin: 5px,0;
   padding-right: 0;
-   box-shadow: 5px 5px 5px silver;
-   border-radius: 10px;
 
   .price {
     color: #c00000;
