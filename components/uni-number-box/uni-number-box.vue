@@ -126,15 +126,15 @@
 		display: flex;
 		/* #endif */
 		flex-direction: row;
-		height: 35px;
-		line-height: 35px;
-		width: 120px;
+		height: 33px;
+		line-height: 16px;
+		width: 90px;
 	}
 
 	.uni-numbox__value {
 		background-color: #ffffff;
-		width: 40px;
-		height: 35px;
+		width: 33px;
+		height: 33px;
 		text-align: center;
 		font-size: 32rpx;
 		border-width: 1rpx;
@@ -151,8 +151,8 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		width: 35px;
-		height: 35px;
+		width: 33px;
+		height: 33px;
 		/* line-height: $box-line-height;
  */
 		/* text-align: center;
@@ -175,8 +175,8 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		width: 35px;
-		height: 35px;
+		width: 33px;
+		height: 33px;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: #e5e5e5;
@@ -187,7 +187,7 @@
 	}
 
 	.uni-numbox--text {
-		font-size: 40rpx;
+		font-size: 25rpx;
 		color: #333;
 	}
 

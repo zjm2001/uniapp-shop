@@ -17,6 +17,14 @@ const mutations = {
   //持久化处理
   saveToStorage(state){
      uni.setStorageSync('cart', JSON.stringify(state.cart))
+  },
+  //更新购物车数据状态
+  updateGoodsState(state,goods){
+    const findResult = state.cart.find(item=>item.goods_id === goods.goods_id)
+      if (findResult) {
+        findResult.goods_state = goods.goods_state         // 更新对应商品的勾选状态
+        this.commit('m_cart/saveToStorage')         // 持久化存储到本地
+      }
   }
 }
 const actions = {}
