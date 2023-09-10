@@ -221,6 +221,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 0 20px;
+    margin:10px 0
 	}
 
 	.uni-swipe_button-text {
