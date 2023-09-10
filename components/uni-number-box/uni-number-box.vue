@@ -101,9 +101,12 @@
 				return scale;
 			},
 			_onBlur(event) {
-				let value = event.detail.value;
+				// let value = event.detail.value;
+				let value = parseInt(event.detail.value); //将用户输入的内容转化为整数
 				if (!value) {
 					// this.inputValue = 0;
+          //转化之后为非法字符nan则默认
+          this.inputValue=1;
 					return;
 				}
 				value = +value;
