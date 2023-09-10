@@ -56,7 +56,10 @@
 				this.inputValue = +val;
 			},
 			inputValue(newVal, oldVal) {
-				if (+newVal !== +oldVal) {
+				// if (+newVal !== +oldVal) {
+          //在用户每次输入内容之后，都会触发 inputValue 侦听器，从而调用 this.$emit("change", newVal) 方法。这种做法可能会把不合法的内容传递出去！
+          // // 新旧内容不同 && 新值内容合法 && 新值中不包含小数点才触发
+          if(+newVal !== +oldVal && Number(newVal) && String(newVal).indexOf('.') === -1){
 					this.$emit("change", newVal);
 				}
 			}
