@@ -1,5 +1,6 @@
 <template>
   <view>
+    <my-address></my-address>
   <!-- 购物车商品列表的标题区域 -->
   <view class="cart-title">
     <!-- 左侧的图标 -->
