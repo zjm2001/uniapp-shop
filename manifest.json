@@ -46,6 +46,11 @@
         "setting" : {
             "urlCheck" : true,
            "checkSiteMap": false
-        }
+        },
+           "requiredPrivateInfos": [
+                  "chooseLocation",
+                  "getLocation", 
+                  "chooseAddress"
+                  ]
     }
 }
