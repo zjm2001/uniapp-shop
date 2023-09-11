@@ -8,10 +8,11 @@ const mutations={
         state.address = address
          this.commit('m_user/saveAddressToStorage')
       },
-       // 1. 定义将 address 持久化存储到本地 mutations 方法
+       //  定义将 address 持久化存储到本地 mutations 方法
     saveAddressToStorage(state) {
         uni.setStorageSync('address', JSON.stringify(state.address))
       },
+
 }
 const getters={
      // 收货详细地址的计算属性
