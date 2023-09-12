@@ -1,7 +1,8 @@
 const state = {
   address: JSON.parse(uni.getStorageSync('address') || '{}'), //收获地址
   token: uni.getStorageSync('token') || '', //登录成功后的token
-  userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}') //用户基本信息
+  userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'), //用户基本信息
+  redirectInfo: null   // 重定向的 object 对象 { openType, from }
 }
 const mutations = {
   //更新收货地址
@@ -27,11 +28,14 @@ const mutations = {
     state.token = token
     this.commit('m_user/saveTokenToStorage')
   },
-
   // 将 token 字符串持久化存储到本地
   saveTokenToStorage(state) {
     uni.setStorageSync('token', state.token)
-  }
+  },
+   // 更新重定向的信息对象
+    updateRedirectInfo(state, info) {
+      state.redirectInfo = info
+    }
 
 }
 const getters = {
