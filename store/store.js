@@ -22,7 +22,6 @@ const store = new Vuex.Store({
           return c
        },
      address:state=> state.m_user.address,
-     addstr:state=> state.m_user.addstr,
   }
 })
 

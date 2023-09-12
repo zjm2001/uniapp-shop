@@ -46,7 +46,6 @@
     computed: {
       ...mapGetters(['address']),
       ...mapGetters('m_user', ['addstr']),
-
     },
     methods: {
       ...mapMutations('m_user', ['updateAddress']),
